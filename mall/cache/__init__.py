@@ -23,4 +23,4 @@ MEMOIZE = cache.get_memoization_decorator(
 
 # Load config file here
 
-cache.configure_cache_region(example_cache_region)
+cache.configure_cache_region(CONF, example_cache_region)
