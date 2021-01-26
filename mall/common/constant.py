@@ -8,10 +8,6 @@
 """
 import os
 
-from oslo_config import cfg
-
-CONF = cfg.CONF
-
 # os.path.dirname(path) 获取path路径的上级目录
 BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
