@@ -56,6 +56,8 @@ def deco_catch_func_exception(func_desc="内部方法"):
 
         return wrapper
 
+    return catch_exception
+
 
 def deco_catch_view_exception(func_desc="外部接口"):
     def catch_exception(origin_func):
@@ -75,3 +77,5 @@ def deco_catch_view_exception(func_desc="外部接口"):
                 raise Fail("{}-{} 方法异常: {}".format(func_desc, func_name, e))
 
         return wrapper
+
+    return catch_exception

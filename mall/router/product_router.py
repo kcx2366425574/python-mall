@@ -8,10 +8,14 @@
 """
 from flask import Blueprint
 
+from mall.db.models.product import product_api
+
 app_product = Blueprint('product', __name__)
 
 
 @app_product.route('/list')
 def get_product_list():
-    return {"name": "banana"}
+    result = product_api.get_product_list()
+    return result
+
 

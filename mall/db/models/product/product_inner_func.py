@@ -6,13 +6,11 @@
 @Contact    :kuangcx@inspur.com
 @Description : null
 """
-
+from mall.db.engines.mysql import get_session
 from mall.db.models.product import product_dao as ProductAPI
 
-from mall.common.common import deco_catch_func_exception
 
-
-@deco_catch_func_exception("获取商品")
 def get_product():
-    plist = ProductAPI.get_product_list()
+    session = get_session()
+    plist = ProductAPI.get_product_list(session)
     return plist

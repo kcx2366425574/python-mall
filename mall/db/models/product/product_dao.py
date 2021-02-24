@@ -11,8 +11,7 @@ from mall.db.engines.mysql import get_session
 from mall.db.models.product.product_model import Product
 
 
-def get_product_list():
-    session = get_session()
+def get_product_list(session):
     with session.begin():
         plist = session.query(Product).all()
         return plist

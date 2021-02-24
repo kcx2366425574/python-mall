@@ -15,3 +15,5 @@ from mall.db.models.product import product_inner_func as ProductIN
 @deco_catch_view_exception("获取商品")
 def get_product_list():
     product_list = ProductIN.get_product()
+    result = [i.to_dict() for i in product_list]
+    return result

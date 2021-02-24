@@ -8,11 +8,11 @@
 """
 
 from mall.db.models import Base
-
+from mall.db.base import DBbase
 from sqlalchemy import Column, String, Float
 
 
-class Product(Base):
+class Product(Base, DBbase):
     __tablename__ = 'product'
 
     product_id = Column(String(50), primary_key=True)
