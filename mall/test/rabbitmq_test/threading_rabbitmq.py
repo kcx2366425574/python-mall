@@ -14,12 +14,11 @@ from mall.db.engines.rabbitmqEngine import rabbitmqProducer, rabbitmqConsumer
 que_name = "kuangcx"
 
 
-def send():
+def send(msg):
     p = rabbitmqProducer()
 
     with p.get_connection():
         producer = p.get_channel(que_name)
-        msg = "Hello World!"
         producer.basic_publish(exchange='', routing_key=que_name, body=msg)
 
 
@@ -30,12 +29,11 @@ def recive():
     consumer = c.get_channel(que_name)
 
 
-thread1 = threading.Thread(target=send)
+for i in range(5):
+    threading.Thread(target=send, args=("这是消息{}".format(i), )).start()
 thread2 = threading.Thread(target=recive)
 
-thread1.start()
 thread2.start()
 
-thread1.join()
 thread2.join()
 

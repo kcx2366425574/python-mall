@@ -15,3 +15,12 @@ def get_product_list(session):
     with session.begin():
         plist = session.query(Product).all()
         return plist
+
+
+def add_product(session, params):
+
+    product = {
+        
+    }
+    with session.begin():
+        session.add(product)
