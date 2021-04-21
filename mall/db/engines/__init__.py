@@ -39,3 +39,14 @@ rabbitmq_opts = [
 CONF.register_group(rabbitmq_group)
 
 CONF.register_opts(rabbitmq_opts, rabbitmq_group)
+
+# 注册配置文件中的promethues section
+promethues_group = cfg.OptGroup(name="promethues", title="promethues")
+
+promethues_opts = [
+    cfg.StrOpt("url", default="http://10.48.66.58:9090/api/v1/", help="the promethues url"),
+]
+
+CONF.register_group(promethues_group)
+
+CONF.register_opts(promethues_opts, promethues_group)
