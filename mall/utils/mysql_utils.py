@@ -176,7 +176,15 @@ class SQLgo(object):
 
     def get_tables(self):
         tables = self.baseItems(sql='show tables')
+        table_list = []
         for table in tables:
             field = self.gen_alter(table_name=table)  # 表结构详情
             idx = self.index(table_name=table)  # 索引
             print({'idx': idx, 'field': field})
+            t = dict()
+            t["table_name"] = table
+            t["idx"] = idx
+            t["field"] = field
+            table_list.append(t)
+
+        return table_list

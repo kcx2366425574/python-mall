@@ -9,6 +9,7 @@
 from flask import Flask
 from flask_cors import CORS
 
+from mall.router import app_test
 from mall.router.product_router import app_product
 
 
@@ -17,3 +18,4 @@ CORS(app)
 
 # 注册组件
 app.register_blueprint(app_product, url_prefix="/product")
+app.register_blueprint(app_test, url_prefix="/")
