@@ -29,13 +29,7 @@ class PromethuesUtil:
     def get_Instantaneous_data(cls, params=None, method="query"):
         url = "{}{}".format(CONF.promethues.url, method)
 
-        if params:
-            params_in_url = "&".join(["{}={}".format(key, value) for key, value in params.items()])
-            request_url = "{}?{}".format(url, params_in_url)
-        else:
-            request_url = url
-
-        res = requests.get(request_url)
+        res = requests.get(url, params=params)
 
         if res.status_code != 200:
             raise Fail("query promethues fail")
